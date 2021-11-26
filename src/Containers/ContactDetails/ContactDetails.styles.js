@@ -6,10 +6,13 @@ export default StyleSheet.create({
     backgroundColor: 'white',
     paddingHorizontal: 20,
   },
-  photo: {
+  avatarBackground: {
     width: 100,
     height: 100,
     borderRadius: 50,
+    backgroundColor: 'orange',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   infoContainer: {
     height: 200,

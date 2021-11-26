@@ -3,18 +3,20 @@ import {Image, View, Text, TouchableOpacity} from 'react-native';
 
 import styles from './ContactItem.styles';
 
-const Bio = ({name}) => (
+const Bio = ({firstName, lastName}) => (
   <View style={styles.bioContainer}>
-    <Text style={styles.fullName}>{name}</Text>
+    <Text style={styles.fullName}>
+      {firstName} {lastName}
+    </Text>
   </View>
 );
 
-const Photo = ({uri}) => <Image source={{uri}} style={styles.photo} />;
+const Photo = ({photo}) => <Image source={{uri: photo}} style={styles.photo} />;
 
-const ContactItem = props => (
-  <TouchableOpacity style={styles.container} onPress={props.onPress}>
-    <Photo uri={props.uri} />
-    <Bio name={props.name} />
+const ContactItem = ({data, onPress}) => (
+  <TouchableOpacity style={styles.container} onPress={onPress}>
+    <Photo photo={data.photo} />
+    <Bio firstName={data.firstName} lastName={data.lastName} />
   </TouchableOpacity>
 );
 

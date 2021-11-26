@@ -22,8 +22,8 @@ const renderText = type => (
   </View>
 );
 
-const ActionButton = ({type}) => (
-  <TouchableOpacity style={styles.container}>
+const ActionButton = ({type, onPress}) => (
+  <TouchableOpacity style={styles.container} onPress={onPress}>
     {renderIcon(type)}
     {renderText(type)}
   </TouchableOpacity>

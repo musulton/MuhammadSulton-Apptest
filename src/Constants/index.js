@@ -1,5 +1,6 @@
 export default {
   ROUTES: {
+    FORM: 'FORM',
     DETAILS: 'Details',
     LIST: 'List',
   },
