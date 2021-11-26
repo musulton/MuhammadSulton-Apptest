@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {TextInput, View, TouchableOpacity, Text, Alert} from 'react-native';
+import {TextInput, View, Alert} from 'react-native';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -7,6 +7,7 @@ import {bindActionCreators} from 'redux';
 import {BASE_URL} from '../../Config';
 import Constants from '../../Constants';
 import ContactActions from '../../Redux/Actions/Contact';
+import {Button} from '../../Components';
 
 import styles from './ContactForm.styles';
 
@@ -42,43 +43,58 @@ const renderForm = ({setter, contact}) => {
   );
 };
 
-const handleSave =
-  ({navigation, setShouldReload}, contact) =>
-  () => {
-    axios.post(`${BASE_URL}/contact`, contact).then(response => {
-      console.log('response', response);
-      Alert.alert('Info', 'Data has been saved', [
-        {
-          text: 'Ok',
-          onPress: () => {
-            setShouldReload(true);
-            navigation.navigate(Constants.ROUTES.LIST);
-          },
-        },
-      ]);
-    });
-  };
+const renderAlertDialog = ({navigation, setShouldReload}, isUpdateData) => {
+  const message = isUpdateData
+    ? 'Data has been updated'
+    : 'Data has been created';
+  Alert.alert('Info', message, [
+    {
+      text: 'Ok',
+      onPress: () => {
+        setShouldReload(true);
+        navigation.navigate(Constants.ROUTES.LIST);
+      },
+    },
+  ]);
+};
 
-const renderButton = (props, contact) => (
-  <View style={styles.buttonContainer}>
-    <TouchableOpacity style={styles.button}>
-      <Text style={styles.buttonText}>Cancel</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
-      style={styles.button}
-      onPress={handleSave(props, contact)}>
-      <Text style={styles.buttonText}>Save</Text>
-    </TouchableOpacity>
-  </View>
-);
+const handleSave = (props, contact, isUpdateData) => () => {
+  axios.post(`${BASE_URL}/contact`, contact).then(() => {
+    renderAlertDialog(props, isUpdateData);
+  });
+};
 
-const _getStates = preloadValue => {
-  const _firstName = preloadValue?.firstName;
-  const _lastName = preloadValue?.lastName;
-  const _age = preloadValue?.age;
-  const [firstName, setFirstName] = React.useState(_firstName);
-  const [lastName, setLastName] = React.useState(_lastName);
-  const [age, setAge] = React.useState(_age ? _age.toString() : '');
+const handleEdit = (props, contact, isUpdateData) => () => {
+  const {
+    route: {params},
+  } = props;
+  axios.put(`${BASE_URL}/contact/${params.contact.id}`, contact).then(() => {
+    renderAlertDialog(props, isUpdateData);
+  });
+};
+
+const renderButton = (props, contact) => {
+  const {
+    route: {params},
+  } = props;
+  const onPress = params.isUpdateData ? handleEdit : handleSave;
+
+  return (
+    <View style={styles.buttonContainer}>
+      <Button text="Cancel" onPress={props.navigation.goBack} />
+      <Button
+        text="Save"
+        onPress={onPress(props, contact, params.isUpdateData)}
+      />
+    </View>
+  );
+};
+
+const _getStates = (preloadValue = {}) => {
+  const {firstName: fn, lastName: ln, age: a} = preloadValue;
+  const [firstName, setFirstName] = React.useState(fn);
+  const [lastName, setLastName] = React.useState(ln);
+  const [age, setAge] = React.useState(a ? a.toString() : '');
   const [photo, setPhoto] = React.useState('N/A');
 
   return {
@@ -91,7 +107,7 @@ const ContactForm = props => {
   const {
     route: {params},
   } = props;
-  const state = _getStates(params);
+  const state = _getStates(params.contact);
 
   return (
     <View style={styles.container}>

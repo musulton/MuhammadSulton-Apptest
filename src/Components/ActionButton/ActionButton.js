@@ -4,7 +4,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './ActionButton.styles';
 import config from './ActionButton.config';
-import {Separator} from '../index';
 
 const renderIcon = type => (
   <View style={styles.iconContainer}>
@@ -16,9 +15,6 @@ const renderText = type => (
   <View style={styles.textContainer}>
     <Text>{config.PROPERTY_ACTION[type].title}</Text>
     <Text>{config.PROPERTY_ACTION[type].description}</Text>
-    {/*<View style={styles.distance}>*/}
-    {/*  <Separator />*/}
-    {/*</View>*/}
   </View>
 );
 

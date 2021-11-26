@@ -42,7 +42,7 @@ const _useGetContactListEffect = ({
       setContact(response.data.data);
       setShouldReload(false);
     });
-  }, [shouldReload]);
+  }, [shouldReload, setShouldReload, setContact]);
 };
 
 const ContactList = props => {

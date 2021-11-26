@@ -39,7 +39,9 @@ const Bio = ({firstName, lastName, age}) => (
 const renderEditButton = ({navigation, contact}) => (
   <ActionButton
     type={Constants.ACTION_BUTTON.EDIT}
-    onPress={() => navigation.navigate(Constants.ROUTES.FORM, contact)}
+    onPress={() =>
+      navigation.navigate(Constants.ROUTES.FORM, {contact, isUpdateData: true})
+    }
   />
 );
 
@@ -50,23 +52,27 @@ const renderInfo = ({photo, age, firstName, lastName}) => (
   </View>
 );
 
-const handleDelete =
-  ({navigation, setShouldReload, route}) =>
-  () => {
-    axios.delete(`${BASE_URL}/contact/${route.params.id}`).then(response => {
-      Alert.alert('Info', 'Data has been deleted', [
-        {
-          text: 'Ok',
-          onPress: () => {
-            setShouldReload(true);
-            navigation.navigate(Constants.ROUTES.LIST);
-          },
-        },
-      ]);
-    });
-  };
+const renderAlertDialog = ({navigation, setShouldReload}) =>
+  Alert.alert('Info', 'Data has been deleted', [
+    {
+      text: 'Ok',
+      onPress: () => {
+        setShouldReload(true);
+        navigation.navigate(Constants.ROUTES.LIST);
+      },
+    },
+  ]);
 
-const renderDeleteButton = (props) => (
+const handleDelete = props => () => {
+  const {
+    route: {params},
+  } = props;
+  axios.delete(`${BASE_URL}/contact/${params.id}`).then(() => {
+    renderAlertDialog(props);
+  });
+};
+
+const renderDeleteButton = props => (
   <ActionButton
     type={Constants.ACTION_BUTTON.DELETE}
     onPress={() =>
