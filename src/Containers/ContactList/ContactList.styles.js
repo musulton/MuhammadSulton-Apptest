@@ -8,4 +8,10 @@ export default StyleSheet.create({
   contentContainer: {
     paddingHorizontal: 20,
   },
+  iconContainer: {
+    height: 90,
+    justifyContent: 'center',
+    paddingHorizontal: 25,
+    paddingBottom: 20,
+  },
 });

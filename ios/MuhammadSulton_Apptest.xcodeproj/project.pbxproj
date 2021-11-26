@@ -13,6 +13,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		614546CA2992833D822E8078 /* libPods-MuhammadSulton_Apptest-MuhammadSulton_ApptestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00412DB5929E4699EE3D057E /* libPods-MuhammadSulton_Apptest-MuhammadSulton_ApptestTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		9DC7D465275076E2001D5353 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 9DC7D464275076E2001D5353 /* fonts */; };
 		C9A3FE0892C3F517F9C086E3 /* libPods-MuhammadSulton_Apptest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E803D81F3C95324DBD77E98 /* libPods-MuhammadSulton_Apptest.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		65B7E58C2C0A4BB779AB651A /* Pods-MuhammadSulton_Apptest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuhammadSulton_Apptest.release.xcconfig"; path = "Target Support Files/Pods-MuhammadSulton_Apptest/Pods-MuhammadSulton_Apptest.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MuhammadSulton_Apptest/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9942E25F6E856D1D13FFC17D /* Pods-MuhammadSulton_Apptest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuhammadSulton_Apptest.debug.xcconfig"; path = "Target Support Files/Pods-MuhammadSulton_Apptest/Pods-MuhammadSulton_Apptest.debug.xcconfig"; sourceTree = "<group>"; };
+		9DC7D464275076E2001D5353 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FC0994D9316DFFBE1463E7AD /* Pods-MuhammadSulton_Apptest-MuhammadSulton_ApptestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuhammadSulton_Apptest-MuhammadSulton_ApptestTests.release.xcconfig"; path = "Target Support Files/Pods-MuhammadSulton_Apptest-MuhammadSulton_ApptestTests/Pods-MuhammadSulton_Apptest-MuhammadSulton_ApptestTests.release.xcconfig"; sourceTree = "<group>"; };
 		FF0884A9D0E04C5263F53A9F /* Pods-MuhammadSulton_Apptest-MuhammadSulton_ApptestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuhammadSulton_Apptest-MuhammadSulton_ApptestTests.debug.xcconfig"; path = "Target Support Files/Pods-MuhammadSulton_Apptest-MuhammadSulton_ApptestTests/Pods-MuhammadSulton_Apptest-MuhammadSulton_ApptestTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				9DC7D464275076E2001D5353 /* fonts */,
 				13B07FAE1A68108700A75B9A /* MuhammadSulton_Apptest */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* MuhammadSulton_ApptestTests */,
@@ -145,7 +148,6 @@
 				FF0884A9D0E04C5263F53A9F /* Pods-MuhammadSulton_Apptest-MuhammadSulton_ApptestTests.debug.xcconfig */,
 				FC0994D9316DFFBE1463E7AD /* Pods-MuhammadSulton_Apptest-MuhammadSulton_ApptestTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -243,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC7D465275076E2001D5353 /* fonts in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);

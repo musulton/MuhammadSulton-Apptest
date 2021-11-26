@@ -1,7 +1,8 @@
 import * as React from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image} from 'react-native';
 
-import {Separator} from '../../Components';
+import {ActionButton} from '../../Components';
+import Constants from '../../Constants';
 import styles from './ContactDetails.styles';
 
 const Photo = () => (
@@ -18,26 +19,14 @@ const Bio = () => (
   </View>
 );
 
-const ActionButton = ({type}) => (
-  <TouchableOpacity>
-    <View>
-      <Text>Edit Profile</Text>
-      <Text>You can change everything</Text>
-      <View style={styles.distance}>
-        <Separator />
-      </View>
-    </View>
-  </TouchableOpacity>
-);
-
 const ContactDetails = () => (
   <View style={styles.container}>
     <View style={styles.infoContainer}>
       <Photo />
       <Bio />
     </View>
-    <ActionButton type="Edit" />
-    <ActionButton type="Delete" />
+    <ActionButton type={Constants.ACTION_BUTTON.EDIT} />
+    <ActionButton type={Constants.ACTION_BUTTON.DELETE} />
   </View>
 );
 
