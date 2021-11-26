@@ -11,5 +11,6 @@ export default {
   },
   REDUX_ACTION: {
     SET_CONTACT: 'SET_CONTACT',
+    SET_SHOULD_RELOAD: 'SET_SHOULD_RELOAD',
   },
 };

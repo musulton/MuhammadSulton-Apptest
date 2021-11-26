@@ -2,6 +2,7 @@ import Constants from '../../Constants';
 
 const initialState = {
   contactList: [],
+  shouldReload: false,
 };
 
 const contactReducers = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const contactReducers = (state = initialState, action) => {
       return {
         ...state,
         contactList: action.payload,
+      };
+    case Constants.REDUX_ACTION.SET_SHOULD_RELOAD:
+      return {
+        ...state,
+        shouldReload: action.payload,
       };
     default:
       return state;

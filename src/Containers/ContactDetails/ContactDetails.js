@@ -2,11 +2,14 @@ import * as React from 'react';
 import {View, Text, Image, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 import {ActionButton} from '../../Components';
 import {validURL} from '../../Utils/Url';
 import Constants from '../../Constants';
 import {BASE_URL} from '../../Config';
+import ContactActions from '../../Redux/Actions/Contact';
 
 import config from './ContactDetails.config';
 import styles from './ContactDetails.styles';
@@ -33,7 +36,7 @@ const Bio = ({firstName, lastName, age}) => (
   </View>
 );
 
-const renderEditButton = (navigation, contact) => (
+const renderEditButton = ({navigation, contact}) => (
   <ActionButton
     type={Constants.ACTION_BUTTON.EDIT}
     onPress={() => navigation.navigate(Constants.ROUTES.FORM, contact)}
@@ -47,7 +50,23 @@ const renderInfo = ({photo, age, firstName, lastName}) => (
   </View>
 );
 
-const renderDeleteButton = ({navigation, route: {params}}) => (
+const handleDelete =
+  ({navigation, setShouldReload, route}) =>
+  () => {
+    axios.delete(`${BASE_URL}/contact/${route.params.id}`).then(response => {
+      Alert.alert('Info', 'Data has been deleted', [
+        {
+          text: 'Ok',
+          onPress: () => {
+            setShouldReload(true);
+            navigation.navigate(Constants.ROUTES.LIST);
+          },
+        },
+      ]);
+    });
+  };
+
+const renderDeleteButton = (props) => (
   <ActionButton
     type={Constants.ACTION_BUTTON.DELETE}
     onPress={() =>
@@ -61,7 +80,7 @@ const renderDeleteButton = ({navigation, route: {params}}) => (
           },
           {
             text: 'Ok',
-            onPress: () => console.log('Delete'),
+            onPress: handleDelete(props),
           },
         ],
         {
@@ -82,6 +101,7 @@ const _useGetContactEffect = ({params, setContact}) => {
 
 const ContactDetails = props => {
   const {
+    navigation,
     route: {params},
   } = props;
   const [contact, setContact] = React.useState(config.defaultContact);
@@ -91,10 +111,14 @@ const ContactDetails = props => {
   return (
     <View style={styles.container}>
       {renderInfo(contact)}
-      {renderEditButton(props.navigation, contact)}
+      {renderEditButton({navigation, contact})}
       {renderDeleteButton(props)}
     </View>
   );
 };
 
-export default ContactDetails;
+const mapDispatchToProps = dispatch => ({
+  setShouldReload: bindActionCreators(ContactActions.setShouldReload, dispatch),
+});
+
+export default connect(null, mapDispatchToProps)(ContactDetails);

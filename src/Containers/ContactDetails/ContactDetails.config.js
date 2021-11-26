@@ -1,4 +1,5 @@
 const defaultContact = {
+  id: '',
   firstName: '',
   lastName: '',
   age: '',

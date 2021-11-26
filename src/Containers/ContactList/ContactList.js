@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {ScrollView, View} from 'react-native';
+import {ScrollView, View, RefreshControl} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import axios from 'axios';
@@ -20,7 +20,7 @@ const renderAddIcon = navigation => (
   </View>
 );
 
-const renderContactItem = ({data, navigation, index, contactList}) => (
+const renderContactItem = ({contactList, navigation}, {index, data}) => (
   <View key={data.id}>
     <ContactItem
       data={data}
@@ -32,35 +32,50 @@ const renderContactItem = ({data, navigation, index, contactList}) => (
   </View>
 );
 
-const _useGetContactListEffect = setContact => {
+const _useGetContactListEffect = ({
+  setContact,
+  shouldReload,
+  setShouldReload,
+}) => {
   React.useEffect(() => {
     axios.get(`${BASE_URL}/contact`).then(response => {
       setContact(response.data.data);
+      setShouldReload(false);
     });
-  }, []);
+  }, [shouldReload]);
 };
 
-const ContactList = ({navigation, setContact, contactList}) => {
-  _useGetContactListEffect(setContact);
+const ContactList = props => {
+  _useGetContactListEffect(props);
 
   return (
     <View style={styles.container}>
-      <ScrollView contentContainerStyle={styles.contentContainer}>
-        {contactList.map((data, index) =>
-          renderContactItem({navigation, contactList, data, index}),
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.contentContainer}
+        refreshControl={
+          <RefreshControl
+            refreshing={props.shouldReload}
+            onRefresh={() => props.setShouldReload(true)}
+          />
+        }>
+        {props.contactList.map((data, index) =>
+          renderContactItem(props, {data, index}),
         )}
       </ScrollView>
-      {renderAddIcon(navigation)}
+      {renderAddIcon(props.navigation)}
     </View>
   );
 };
 
 const mapStateToProps = state => ({
   contactList: state.contactReducers.contactList,
+  shouldReload: state.contactReducers.shouldReload,
 });
 
 const mapDispatchToProps = dispatch => ({
   setContact: bindActionCreators(ContactActions.setContact, dispatch),
+  setShouldReload: bindActionCreators(ContactActions.setShouldReload, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
