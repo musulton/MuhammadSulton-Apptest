@@ -20,21 +20,19 @@ const renderAddIcon = navigation => (
   </View>
 );
 
-const renderContactItem = ({data, navigation, i, contactList}) => (
-  <View key={i}>
+const renderContactItem = ({data, navigation, index, contactList}) => (
+  <View key={data.id}>
     <ContactItem
       data={data}
       onPress={() =>
-        navigation.navigate(Constants.ROUTES.DETAILS, {
-          data,
-        })
+        navigation.navigate(Constants.ROUTES.DETAILS, {id: data.id})
       }
     />
-    {contactList.length - 1 !== i && <Separator />}
+    {contactList.length - 1 !== index && <Separator />}
   </View>
 );
 
-const _useFetchingEffect = setContact => {
+const _useGetContactListEffect = setContact => {
   React.useEffect(() => {
     axios.get(`${BASE_URL}/contact`).then(response => {
       setContact(response.data.data);
@@ -43,13 +41,13 @@ const _useFetchingEffect = setContact => {
 };
 
 const ContactList = ({navigation, setContact, contactList}) => {
-  _useFetchingEffect(setContact);
+  _useGetContactListEffect(setContact);
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        {contactList.map((data, i) =>
-          renderContactItem({navigation, contactList, data, i}),
+        {contactList.map((data, index) =>
+          renderContactItem({navigation, contactList, data, index}),
         )}
       </ScrollView>
       {renderAddIcon(navigation)}

@@ -5,7 +5,6 @@ const initialState = {
 };
 
 const contactReducers = (state = initialState, action) => {
-  console.log('action', action);
   switch (action.type) {
     case Constants.REDUX_ACTION.SET_CONTACT:
       return {

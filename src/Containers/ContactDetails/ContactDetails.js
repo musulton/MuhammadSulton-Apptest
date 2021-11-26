@@ -1,10 +1,14 @@
 import * as React from 'react';
 import {View, Text, Image, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import axios from 'axios';
 
 import {ActionButton} from '../../Components';
 import {validURL} from '../../Utils/Url';
 import Constants from '../../Constants';
+import {BASE_URL} from '../../Config';
+
+import config from './ContactDetails.config';
 import styles from './ContactDetails.styles';
 
 const Photo = ({photo}) => {
@@ -29,11 +33,18 @@ const Bio = ({firstName, lastName, age}) => (
   </View>
 );
 
-const renderEditButton = ({navigation, route: {params}}) => (
+const renderEditButton = (navigation, contact) => (
   <ActionButton
     type={Constants.ACTION_BUTTON.EDIT}
-    onPress={() => navigation.navigate(Constants.ROUTES.FORM, params.data)}
+    onPress={() => navigation.navigate(Constants.ROUTES.FORM, contact)}
   />
+);
+
+const renderInfo = ({photo, age, firstName, lastName}) => (
+  <View style={styles.infoContainer}>
+    <Photo photo={photo} />
+    <Bio firstName={firstName} lastName={lastName} age={age} />
+  </View>
 );
 
 const renderDeleteButton = ({navigation, route: {params}}) => (
@@ -61,21 +72,26 @@ const renderDeleteButton = ({navigation, route: {params}}) => (
   />
 );
 
+const _useGetContactEffect = ({params, setContact}) => {
+  React.useEffect(() => {
+    axios.get(`${BASE_URL}/contact/${params.id}`).then(response => {
+      setContact(response.data.data);
+    });
+  }, []);
+};
+
 const ContactDetails = props => {
   const {
     route: {params},
   } = props;
+  const [contact, setContact] = React.useState(config.defaultContact);
+
+  _useGetContactEffect({params, setContact});
+
   return (
     <View style={styles.container}>
-      <View style={styles.infoContainer}>
-        <Photo photo={params.data.photo} />
-        <Bio
-          firstName={params.data.firstName}
-          lastName={params.data.lastName}
-          age={params.data.age}
-        />
-      </View>
-      {renderEditButton(props)}
+      {renderInfo(contact)}
+      {renderEditButton(props.navigation, contact)}
       {renderDeleteButton(props)}
     </View>
   );

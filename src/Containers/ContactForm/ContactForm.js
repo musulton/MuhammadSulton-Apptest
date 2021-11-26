@@ -40,16 +40,16 @@ const renderButton = () => (
     <TouchableOpacity style={styles.button}>
       <Text style={styles.buttonText}>Cancel</Text>
     </TouchableOpacity>
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={}>
       <Text style={styles.buttonText}>Save</Text>
     </TouchableOpacity>
   </View>
 );
 
-const _getStates = defaultValue => {
-  const _firstName = defaultValue?.firstName;
-  const _lastName = defaultValue?.lastName;
-  const _age = defaultValue?.age;
+const _getStates = preloadValue => {
+  const _firstName = preloadValue?.firstName;
+  const _lastName = preloadValue?.lastName;
+  const _age = preloadValue?.age;
   const [firstName, setFirstName] = React.useState(_firstName);
   const [lastName, setLastName] = React.useState(_lastName);
   const [age, setAge] = React.useState(_age ? _age.toString() : '');
@@ -64,12 +64,12 @@ const ContactForm = props => {
   const {
     route: {params},
   } = props;
-  const {setter, state} = _getStates(params);
+  const states = _getStates(params);
 
   return (
     <View style={styles.container}>
-      {renderForm({...setter, ...state})}
-      {renderButton(state)}
+      {renderForm(states)}
+      {renderButton(props, states.state)}
     </View>
   );
 };
