@@ -1,73 +1,68 @@
 import * as React from 'react';
 import {ScrollView, View} from 'react-native';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import axios from 'axios';
 
 import {ActionButton, ContactItem, Separator} from '../../Components';
-import styles from './ContactList.styles';
+import ContactActions from '../../Redux/Actions/Contact';
+import {BASE_URL} from '../../Config';
 import Constants from '../../Constants';
 
-const TEST = [
-  {
-    id: '93ad6070-c92b-11e8-b02f-cbfa15db428b',
-    firstName: 'Bilbo',
-    lastName: 'Baggins',
-    age: 11,
-    photo:
-      'http://vignette1.wikia.nocookie.net/lotr/images/6/68/Bilbo_baggins.jpg/revision/latest?cb=20130202022550',
-  },
-  {
-    id: 'b3abd640-c92b-11e8-b02f-cbfa15db428b',
-    firstName: 'Lukes',
-    lastName: 'Skywalker',
-    age: 20,
-    photo: 'N/A',
-  },
-  {
-    firstName: 'alghifari',
-    photo: 'N/A',
-    lastName: 'fikri',
-    age: 22,
-    id: '2155d230-4e77-11ec-821a-dd51c39d0a9a',
-  },
-  {
-    firstName: 'Cek',
-    photo: 'N/A',
-    lastName: 'Cok',
-    age: 22,
-    id: 'f65d7e00-4e82-11ec-821a-dd51c39d0a9a',
-  },
-  {
-    firstName: 'Cak',
-    photo: undefined,
-    lastName: 'Cok',
-    age: 22,
-    id: 'f65d7e00-4e82-11ec-821a-dd51c39d0a9a',
-  },
-];
+import styles from './ContactList.styles';
 
-const ContactList = ({navigation}) => (
-  <View style={styles.container}>
-    <ScrollView contentContainerStyle={styles.contentContainer}>
-      {TEST.map((data, i) => (
-        <View key={i}>
-          <ContactItem
-            data={data}
-            onPress={() =>
-              navigation.navigate(Constants.ROUTES.DETAILS, {
-                data,
-              })
-            }
-          />
-          {TEST.length - 1 !== i && <Separator />}
-        </View>
-      ))}
-    </ScrollView>
-    <View style={styles.iconContainer}>
-      <ActionButton
-        type={Constants.ACTION_BUTTON.ADD}
-        onPress={() => navigation.navigate(Constants.ROUTES.FORM)}
-      />
-    </View>
+const renderAddIcon = navigation => (
+  <View style={styles.iconContainer}>
+    <ActionButton
+      type={Constants.ACTION_BUTTON.ADD}
+      onPress={() => navigation.navigate(Constants.ROUTES.FORM)}
+    />
   </View>
 );
 
-export default ContactList;
+const renderContactItem = ({data, navigation, i, contactList}) => (
+  <View key={i}>
+    <ContactItem
+      data={data}
+      onPress={() =>
+        navigation.navigate(Constants.ROUTES.DETAILS, {
+          data,
+        })
+      }
+    />
+    {contactList.length - 1 !== i && <Separator />}
+  </View>
+);
+
+const _useFetchingEffect = setContact => {
+  React.useEffect(() => {
+    axios.get(`${BASE_URL}/contact`).then(response => {
+      setContact(response.data.data);
+    });
+  }, []);
+};
+
+const ContactList = ({navigation, setContact, contactList}) => {
+  _useFetchingEffect(setContact);
+
+  return (
+    <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.contentContainer}>
+        {contactList.map((data, i) =>
+          renderContactItem({navigation, contactList, data, i}),
+        )}
+      </ScrollView>
+      {renderAddIcon(navigation)}
+    </View>
+  );
+};
+
+const mapStateToProps = state => ({
+  contactList: state.contactReducers.contactList,
+});
+
+const mapDispatchToProps = dispatch => ({
+  setContact: bindActionCreators(ContactActions.setContact, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

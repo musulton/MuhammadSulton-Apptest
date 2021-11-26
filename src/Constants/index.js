@@ -9,4 +9,7 @@ export default {
     EDIT: 'EDIT',
     DELETE: 'DELETE',
   },
+  REDUX_ACTION: {
+    SET_CONTACT: 'SET_CONTACT',
+  },
 };
