@@ -133,10 +133,7 @@ const ContactForm = props => {
   return (
     <View style={styles.container}>
       <View style={styles.cameraContainer}>
-        <Camera
-          imgPhoto={state.contact.photo}
-          isUpdateData={params?.isUpdateData}
-        />
+        <Camera imgPhoto={state.contact.photo} />
       </View>
       {renderForm(props, state)}
     </View>
