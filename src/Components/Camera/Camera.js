@@ -4,7 +4,7 @@ import {launchImageLibrary} from 'react-native-image-picker';
 
 import {Avatar, Button} from '../index';
 import Constants from '../../Constants';
-import {requestCamera} from '../../Utils/Camera.utils';
+import {requestCamera} from '../../Utils/Camera';
 
 import styles from './Camera.styles';
 import config from './Camera.config';

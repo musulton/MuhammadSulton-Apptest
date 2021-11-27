@@ -1,13 +1,18 @@
 import * as React from 'react';
 import {render, cleanup, fireEvent} from '@testing-library/react-native';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
+
+import {requestCamera} from '../../Utils/Camera';
 
 import Camera from './Camera';
 
-jest.mock('react-native-image-picker', () => ({
-  launchCamera: jest.fn(),
-  launchImageLibrary: jest.fn(),
-}));
+jest
+  .mock('../../Utils/Camera', () => ({
+    requestCamera: jest.fn(),
+  }))
+  .mock('react-native-image-picker', () => ({
+    launchImageLibrary: jest.fn(),
+  }));
 
 describe('Camera', () => {
   afterEach(cleanup);
@@ -18,13 +23,13 @@ describe('Camera', () => {
     expect(toJSON()).toMatchSnapshot();
   });
 
-  it('should call launchCamera when Take Image button is clicked', () => {
+  it('should call requestCamera when Take Image button is clicked', () => {
     const {getByText} = render(<Camera />);
 
     const button = getByText('Take Image');
     fireEvent.press(button);
 
-    expect(launchCamera).toBeCalled();
+    expect(requestCamera).toBeCalled();
   });
 
   it('should call launchImageLibrary when Select Image button is clicked', () => {

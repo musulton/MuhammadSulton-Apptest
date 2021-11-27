@@ -14,9 +14,9 @@ exports[`Camera should render camera correctly 1`] = `
         "alignItems": "center",
         "backgroundColor": "#9DE0AD",
         "borderRadius": 50,
-        "height": 150,
+        "height": 200,
         "justifyContent": "center",
-        "width": 150,
+        "width": 200,
       }
     }
   >
