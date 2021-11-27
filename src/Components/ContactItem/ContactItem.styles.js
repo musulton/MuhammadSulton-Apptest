@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import Colors from '../../Themes/Colors';
 
 export default StyleSheet.create({
   container: {
@@ -19,6 +20,7 @@ export default StyleSheet.create({
   fullName: {
     fontSize: 20,
     fontWeight: '400',
+    color: Colors.text,
   },
   ageContainer: {
     width: 40,
@@ -27,10 +29,6 @@ export default StyleSheet.create({
     borderRadius: 20,
     marginTop: 5,
     alignItems: 'center',
-  },
-  age: {
-    fontSize: 14,
-    color: 'white',
   },
   distance: {
     marginHorizontal: 6,

@@ -1,10 +1,11 @@
 import {StyleSheet} from 'react-native';
 
+import Colors from '../../Themes/Colors';
+
 export default StyleSheet.create({
   separator: {
-    height: 1.5,
+    height: 2,
     width: '100%',
-    opacity: 0.3,
-    backgroundColor: 'gray',
+    backgroundColor: Colors.separator,
   },
 });

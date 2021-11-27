@@ -5,8 +5,13 @@ import Colors from '../../Themes/Colors';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.backgroundScreen,
+    backgroundColor: Colors.background,
     paddingHorizontal: 20,
+  },
+  loadingContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   infoContainer: {
     height: 400,
@@ -14,7 +19,6 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   bioContainer: {
-    marginTop: 10,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -22,13 +26,18 @@ export default StyleSheet.create({
     marginVertical: 15,
   },
   fullname: {
+    marginTop: 10,
+    marginBottom: 5,
     fontSize: 25,
+    color: Colors.text,
   },
   age: {
     fontSize: 15,
-    backgroundColor: 'blue',
+    backgroundColor: Colors.highlight,
+    color: Colors.text2,
     paddingHorizontal: 15,
     paddingVertical: 2,
     borderRadius: 50,
+    fontWeight: '500',
   },
 });

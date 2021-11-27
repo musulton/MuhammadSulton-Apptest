@@ -8,7 +8,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: 160,
+    width: 250,
     marginVertical: 10,
   },
 });

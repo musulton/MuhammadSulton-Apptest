@@ -23,11 +23,14 @@ const Camera = () => {
 
   return (
     <View style={styles.container}>
-      <Avatar uri={resourcePath.assets[0]?.uri} size={250} fromGallery />
+      <Avatar uri={resourcePath.assets[0]?.uri} size={150} fromGallery />
       <View style={styles.buttonContainer}>
-        {config.actions.map(({title, type, options}) => {
+        {config.actions.map(({title, type, options}, i) => {
           return (
-            <Button text={title} onPress={() => onButtonPress(type, options)}>
+            <Button
+              key={i}
+              text={title}
+              onPress={() => onButtonPress(type, options)}>
               {title}
             </Button>
           );

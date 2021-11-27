@@ -3,6 +3,8 @@ import * as React from 'react';
 import {Image, View} from 'react-native';
 
 import {validURL} from '../../Utils/Url';
+import Colors from '../../Themes/Colors';
+
 import styles from './Avatar.styles';
 
 const Avatar = ({uri, size, fromGallery}) => {
@@ -13,7 +15,7 @@ const Avatar = ({uri, size, fromGallery}) => {
 
   return (
     <View style={styles.avatarBackground(size)}>
-      <Icon name="user" size={40} color="#fff" />
+      <Icon name="user" size={40} color={Colors.icon} />
     </View>
   );
 };

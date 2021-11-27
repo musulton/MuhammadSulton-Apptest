@@ -5,7 +5,7 @@ import Colors from '../../Themes/Colors';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.backgroundScreen,
+    backgroundColor: Colors.background,
   },
   contentContainer: {
     paddingHorizontal: 20,

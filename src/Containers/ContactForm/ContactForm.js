@@ -11,7 +11,68 @@ import {Button, Camera} from '../../Components';
 
 import styles from './ContactForm.styles';
 
-const renderForm = ({setter, contact}) => {
+const renderSuccessDialog = ({navigation, setShouldReload}, isUpdateData) => {
+  const message = isUpdateData
+    ? 'Data has been updated'
+    : 'Data has been created';
+  Alert.alert('Success', message, [
+    {
+      text: 'Ok',
+      onPress: () => {
+        setShouldReload(true);
+        navigation.navigate(Constants.ROUTES.LIST);
+      },
+    },
+  ]);
+};
+
+const renderFailedDialog = () => {
+  Alert.alert('Error', "Sorry, we can't process your request", [
+    {
+      text: 'Ok',
+    },
+  ]);
+};
+
+const handleSave = (props, contact, isUpdateData) => () => {
+  axios
+    .post(`${BASE_URL}/contact`, contact)
+    .then(() => {
+      renderSuccessDialog(props, isUpdateData);
+    })
+    .catch(renderFailedDialog);
+};
+
+const handleEdit = (props, contact, isUpdateData) => () => {
+  const {
+    route: {params},
+  } = props;
+  axios
+    .put(`${BASE_URL}/contact/${params?.contact.id}`, contact)
+    .then(() => {
+      renderSuccessDialog(props, isUpdateData);
+    })
+    .catch(renderFailedDialog);
+};
+
+const renderButton = (props, contact) => {
+  const {
+    route: {params},
+  } = props;
+  const onPress = params?.isUpdateData ? handleEdit : handleSave;
+
+  return (
+    <View style={styles.buttonContainer}>
+      <Button text="Cancel" onPress={props.navigation.goBack} />
+      <Button
+        text="Save"
+        onPress={onPress(props, contact, params?.isUpdateData)}
+      />
+    </View>
+  );
+};
+
+const renderForm = (props, {setter, contact}) => {
   const onChangeNumber = text => {
     const value = text.replace(/[^0-9]/g, '');
     setter.setAge(value);
@@ -39,53 +100,7 @@ const renderForm = ({setter, contact}) => {
         keyboardType="numeric"
         maxLength={3}
       />
-    </View>
-  );
-};
-
-const renderAlertDialog = ({navigation, setShouldReload}, isUpdateData) => {
-  const message = isUpdateData
-    ? 'Data has been updated'
-    : 'Data has been created';
-  Alert.alert('Info', message, [
-    {
-      text: 'Ok',
-      onPress: () => {
-        setShouldReload(true);
-        navigation.navigate(Constants.ROUTES.LIST);
-      },
-    },
-  ]);
-};
-
-const handleSave = (props, contact, isUpdateData) => () => {
-  axios.post(`${BASE_URL}/contact`, contact).then(() => {
-    renderAlertDialog(props, isUpdateData);
-  });
-};
-
-const handleEdit = (props, contact, isUpdateData) => () => {
-  const {
-    route: {params},
-  } = props;
-  axios.put(`${BASE_URL}/contact/${params?.contact.id}`, contact).then(() => {
-    renderAlertDialog(props, isUpdateData);
-  });
-};
-
-const renderButton = (props, contact) => {
-  const {
-    route: {params},
-  } = props;
-  const onPress = params?.isUpdateData ? handleEdit : handleSave;
-
-  return (
-    <View style={styles.buttonContainer}>
-      <Button text="Cancel" onPress={props.navigation.goBack} />
-      <Button
-        text="Save"
-        onPress={onPress(props, contact, params?.isUpdateData)}
-      />
+      {renderButton(props, contact)}
     </View>
   );
 };
@@ -114,8 +129,7 @@ const ContactForm = props => {
       <View style={styles.cameraContainer}>
         <Camera />
       </View>
-      {renderForm(state)}
-      {renderButton(props, state.contact)}
+      {renderForm(props, state)}
     </View>
   );
 };

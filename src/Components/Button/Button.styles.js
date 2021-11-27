@@ -1,15 +1,18 @@
 import {StyleSheet} from 'react-native';
 
+import Colors from '../../Themes/Colors';
+
 export default StyleSheet.create({
   button: {
     flex: 1,
-    height: 20,
+    height: 30,
     justifyContent: 'center',
     alignItems: 'center',
   },
   buttonText: {
-    fontSize: 18,
+    flex: 1,
+    fontSize: 16,
     fontWeight: '500',
-    color: 'orange',
+    color: Colors.text,
   },
 });

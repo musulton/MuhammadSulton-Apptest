@@ -14,7 +14,7 @@ const PROPERTY_ACTION = {
   [Constants.ACTION_BUTTON.DELETE]: {
     icon: 'trash',
     title: 'Delete Contact',
-    description: 'Sure you want to delete?',
+    description: 'Too bad to cut off communication',
   },
 };
 

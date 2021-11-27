@@ -7,7 +7,7 @@ export default StyleSheet.create({
     padding: 20,
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: Colors.backgroundScreen,
+    backgroundColor: Colors.background,
   },
   formContainer: {
     flex: 1,
@@ -15,12 +15,14 @@ export default StyleSheet.create({
   field: {
     height: 50,
     margin: 12,
-    borderWidth: 1,
-    borderRadius: 50,
+    borderWidth: 1.5,
+    borderColor: Colors.fieldBorder,
+    borderRadius: 15,
     padding: 15,
-    backgroundColor: Colors.backgroundField,
+    backgroundColor: Colors.field,
   },
   buttonContainer: {
+    marginTop: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },

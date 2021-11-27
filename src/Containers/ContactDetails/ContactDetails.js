@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text, Alert} from 'react-native';
+import {View, Text, Alert, ActivityIndicator} from 'react-native';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -11,6 +11,7 @@ import ContactActions from '../../Redux/Actions/Contact';
 
 import config from './ContactDetails.config';
 import styles from './ContactDetails.styles';
+import Colors from "../../Themes/Colors";
 
 const Bio = ({firstName, lastName, age}) => (
   <View style={styles.bioContainer}>
@@ -62,15 +63,15 @@ const renderDeleteButton = props => (
     type={Constants.ACTION_BUTTON.DELETE}
     onPress={() =>
       Alert.alert(
-        'Are you sure?',
-        'Too bad to cut off communication',
+        'Confirm',
+        'Are you sure to delete?',
         [
           {
             text: 'Cancel',
             style: 'cancel',
           },
           {
-            text: 'Ok',
+            text: 'Yes',
             onPress: handleDelete(props),
           },
         ],
@@ -82,10 +83,12 @@ const renderDeleteButton = props => (
   />
 );
 
-const _useGetContactEffect = ({params, setContact}) => {
+const _useGetContactEffect = ({params, setContact, setFetching}) => {
   React.useEffect(() => {
+    setFetching(true);
     axios.get(`${BASE_URL}/contact/${params.id}`).then(response => {
       setContact(response.data.data);
+      setFetching(false);
     });
   }, []);
 };
@@ -95,9 +98,18 @@ const ContactDetails = props => {
     navigation,
     route: {params},
   } = props;
+  const [fetching, setFetching] = React.useState(true);
   const [contact, setContact] = React.useState(config.defaultContact);
 
-  _useGetContactEffect({params, setContact});
+  _useGetContactEffect({params, setContact, setFetching});
+
+  if (fetching) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color={Colors.loading} />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>

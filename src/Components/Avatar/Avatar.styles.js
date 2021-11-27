@@ -7,7 +7,7 @@ export default StyleSheet.create({
     width: size,
     height: size,
     borderRadius: 50,
-    backgroundColor: Colors.avatarBackground,
+    backgroundColor: Colors.avatar,
     justifyContent: 'center',
     alignItems: 'center',
   }),
