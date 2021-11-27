@@ -8,8 +8,8 @@ import Colors from '../../Themes/Colors';
 import styles from './Avatar.styles';
 
 const Avatar = ({uri, size, fromGallery}) => {
-  const withPhoto = fromGallery ? uri : validURL(uri);
-  if (withPhoto) {
+  const shouldDisplayImage = fromGallery ? uri : validURL(uri);
+  if (shouldDisplayImage) {
     return <Image source={{uri}} style={styles.avatarBackground(size)} />;
   }
 

@@ -9,7 +9,7 @@ import {requestCamera} from '../../Utils/Camera.utils';
 import styles from './Camera.styles';
 import config from './Camera.config';
 
-const Camera = () => {
+const Camera = ({imgPhoto, isUpdateData}) => {
   const [resourcePath, setResourcePath] = React.useState({
     assets: [],
   });
@@ -24,7 +24,11 @@ const Camera = () => {
 
   return (
     <View style={styles.container}>
-      <Avatar uri={resourcePath?.assets?.[0]?.uri} size={200} fromGallery />
+      <Avatar
+        uri={isUpdateData ? imgPhoto : resourcePath?.assets?.[0]?.uri}
+        size={200}
+        fromGallery={!isUpdateData}
+      />
       <View style={styles.buttonContainer}>
         {config.actions.map(({title, type, options}, i) => {
           return (

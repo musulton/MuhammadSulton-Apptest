@@ -106,11 +106,11 @@ const renderForm = (props, {setter, contact}) => {
 };
 
 const _getStates = (preloadValue = {}) => {
-  const {firstName: fn, lastName: ln, age: a} = preloadValue;
+  const {firstName: fn, lastName: ln, age: a, photo: p} = preloadValue;
   const [firstName, setFirstName] = React.useState(fn);
   const [lastName, setLastName] = React.useState(ln);
   const [age, setAge] = React.useState(a ? a.toString() : '');
-  const [photo, setPhoto] = React.useState('N/A');
+  const [photo, setPhoto] = React.useState(p);
 
   return {
     setter: {setFirstName, setLastName, setAge, setPhoto},
@@ -127,7 +127,10 @@ const ContactForm = props => {
   return (
     <View style={styles.container}>
       <View style={styles.cameraContainer}>
-        <Camera />
+        <Camera
+          imgPhoto={state.contact.photo}
+          isUpdateData={params?.isUpdateData}
+        />
       </View>
       {renderForm(props, state)}
     </View>
