@@ -4,7 +4,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import { ActionButton, Avatar, Separator } from "../../Components";
+import {ActionButton, Avatar, Separator} from '../../Components';
 import Constants from '../../Constants';
 import {BASE_URL} from '../../Config';
 import ContactActions from '../../Redux/Actions/Contact';
@@ -38,7 +38,7 @@ const renderInfo = ({photo, age, firstName, lastName}) => (
   </View>
 );
 
-const renderAlertDialog = ({navigation, setShouldReload}) =>
+const renderSuccessDialog = ({navigation, setShouldReload}) =>
   Alert.alert('Info', 'Data has been deleted', [
     {
       text: 'Ok',
@@ -49,13 +49,24 @@ const renderAlertDialog = ({navigation, setShouldReload}) =>
     },
   ]);
 
+const renderFailedDialog = () => {
+  Alert.alert('Error', "Sorry, we can't process your request", [
+    {
+      text: 'Ok',
+    },
+  ]);
+};
+
 const handleDelete = props => () => {
   const {
     route: {params},
   } = props;
-  axios.delete(`${BASE_URL}/contact/${params.id}`).then(() => {
-    renderAlertDialog(props);
-  });
+  axios
+    .delete(`${BASE_URL}/contact/${params.id}`)
+    .then(() => {
+      renderSuccessDialog(props);
+    })
+    .catch(renderFailedDialog);
 };
 
 const renderDeleteButton = props => (

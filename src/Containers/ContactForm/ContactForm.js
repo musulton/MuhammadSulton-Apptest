@@ -14,8 +14,8 @@ import Colors from '../../Themes/Colors';
 
 const renderSuccessDialog = ({navigation, setShouldReload}, isUpdateData) => {
   const message = isUpdateData
-    ? 'Data has been updated'
-    : 'Data has been created';
+    ? "Data has been updated, but sorry can't save the image"
+    : "Data has been created, but sorry can't save the image";
   Alert.alert('Success', message, [
     {
       text: 'Ok',
