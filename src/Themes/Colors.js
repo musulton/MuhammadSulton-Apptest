@@ -11,4 +11,5 @@ export default {
   text: '#000000',
   text2: '#FFFFFF',
   loading: '#594F4F',
+  placeholder: '#999999',
 };

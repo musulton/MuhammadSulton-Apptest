@@ -10,6 +10,7 @@ import ContactActions from '../../Redux/Actions/Contact';
 import {Button, Camera} from '../../Components';
 
 import styles from './ContactForm.styles';
+import Colors from '../../Themes/Colors';
 
 const renderSuccessDialog = ({navigation, setShouldReload}, isUpdateData) => {
   const message = isUpdateData
@@ -72,6 +73,14 @@ const renderButton = (props, contact) => {
   );
 };
 
+const renderTextInput = opts => (
+  <TextInput
+    style={styles.field}
+    placeholderTextColor={Colors.placeholder}
+    {...opts}
+  />
+);
+
 const renderForm = (props, {setter, contact}) => {
   const onChangeNumber = text => {
     const value = text.replace(/[^0-9]/g, '');
@@ -80,26 +89,23 @@ const renderForm = (props, {setter, contact}) => {
 
   return (
     <View style={styles.formContainer}>
-      <TextInput
-        style={styles.field}
-        onChangeText={setter.setFirstName}
-        placeholder="First Name"
-        value={contact.firstName}
-      />
-      <TextInput
-        style={styles.field}
-        onChangeText={setter.setLastName}
-        placeholder="Last Name"
-        value={contact.lastName}
-      />
-      <TextInput
-        style={styles.field}
-        onChangeText={onChangeNumber}
-        placeholder="Age"
-        value={contact.age}
-        keyboardType="numeric"
-        maxLength={3}
-      />
+      {renderTextInput({
+        onChangeText: setter.setFirstName,
+        placeholder: 'Enter first name',
+        value: contact.firstName,
+      })}
+      {renderTextInput({
+        onChangeText: setter.setLastName,
+        placeholder: 'Enter last name',
+        value: contact.lastName,
+      })}
+      {renderTextInput({
+        onChangeText: onChangeNumber,
+        placeholder: 'Enter age',
+        value: contact.age,
+        keyboardType: 'numeric',
+        maxLength: 3,
+      })}
       {renderButton(props, contact)}
     </View>
   );
