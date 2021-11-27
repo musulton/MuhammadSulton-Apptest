@@ -4,7 +4,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {ActionButton, Avatar} from '../../Components';
+import { ActionButton, Avatar, Separator } from "../../Components";
 import Constants from '../../Constants';
 import {BASE_URL} from '../../Config';
 import ContactActions from '../../Redux/Actions/Contact';
@@ -44,7 +44,7 @@ const renderAlertDialog = ({navigation, setShouldReload}) =>
       text: 'Ok',
       onPress: () => {
         setShouldReload(true);
-        navigation.navigate(Constants.ROUTES.LIST);
+        navigation.navigate(Constants.ROUTES.CONTACT);
       },
     },
   ]);
@@ -114,8 +114,11 @@ const ContactDetails = props => {
   return (
     <View style={styles.container}>
       {renderInfo(contact)}
-      {renderEditButton({navigation, contact})}
-      {renderDeleteButton(props)}
+      <View style={styles.buttonContainer}>
+        {renderEditButton({navigation, contact})}
+        <Separator />
+        {renderDeleteButton(props)}
+      </View>
     </View>
   );
 };

@@ -1,8 +1,8 @@
 export default {
   ROUTES: {
     FORM: 'FORM',
-    DETAILS: 'Details',
-    LIST: 'List',
+    DETAILS: 'DETAILS',
+    CONTACT: 'CONTACT',
   },
   ACTION_BUTTON: {
     ADD: 'ADD',

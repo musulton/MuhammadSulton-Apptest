@@ -3,7 +3,7 @@ import {ContactDetails, ContactForm, ContactList} from '../Containers';
 
 const ScreenConfigs = [
   {
-    name: Constants.ROUTES.LIST,
+    name: Constants.ROUTES.CONTACT,
     component: ContactList,
   },
   {

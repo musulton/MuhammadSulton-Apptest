@@ -20,7 +20,7 @@ const renderSuccessDialog = ({navigation, setShouldReload}, isUpdateData) => {
       text: 'Ok',
       onPress: () => {
         setShouldReload(true);
-        navigation.navigate(Constants.ROUTES.LIST);
+        navigation.navigate(Constants.ROUTES.CONTACT);
       },
     },
   ]);

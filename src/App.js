@@ -4,12 +4,10 @@ import {Provider} from 'react-redux';
 import store from './Redux/configureStore';
 import MainNavigation from './Navigation/MainNavigation';
 
-const App = () => {
-  return (
-    <Provider store={store}>
-      <MainNavigation />
-    </Provider>
-  );
-};
+const App = () => (
+  <Provider store={store}>
+    <MainNavigation />
+  </Provider>
+);
 
 export default App;

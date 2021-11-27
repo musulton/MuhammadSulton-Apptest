@@ -14,13 +14,16 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   infoContainer: {
-    height: 400,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   bioContainer: {
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  buttonContainer: {
+    marginBottom: 20,
   },
   distance: {
     marginVertical: 15,
