@@ -1,6 +1,6 @@
 import Constants from '../../Constants';
 
-const initialState = {
+export const initialState = {
   contactList: [],
   shouldReload: false,
 };

@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
+    "@testing-library/react-native": "^8.0.0",
     "axios": "^0.24.0",
     "react": "17.0.2",
     "react-native": "0.66.3",
@@ -33,6 +34,9 @@
     "react-test-renderer": "17.0.2"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@react-native|react-native|react-native-vector-icons|react-native-image-picker|@react-navigation)/)"
+    ]
   }
 }

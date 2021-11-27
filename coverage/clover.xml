@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1637996261279" clover="3.2.0">
+  <project timestamp="1637996261279" name="All files">
+    <metrics statements="32" coveredstatements="24" conditionals="6" coveredconditionals="4" methods="14" coveredmethods="7" elements="52" coveredelements="35" complexity="0" loc="32" ncloc="32" packages="10" files="18" classes="18"/>
+    <package name="Components">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Components/index.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="Components.ActionButton">
+      <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="ActionButton.config.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Components/ActionButton/ActionButton.config.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="ActionButton.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Components/ActionButton/ActionButton.js">
+        <metrics statements="6" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+      </file>
+      <file name="ActionButton.styles.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Components/ActionButton/ActionButton.styles.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="Components.Avatar">
+      <metrics statements="6" coveredstatements="5" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="Avatar.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Components/Avatar/Avatar.js">
+        <metrics statements="5" coveredstatements="4" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="12" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+      </file>
+      <file name="Avatar.styles.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Components/Avatar/Avatar.styles.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="Components.Button">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Button.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Components/Button/Button.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+      </file>
+      <file name="Button.styles.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Components/Button/Button.styles.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="Components.Camera">
+      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+      <file name="Camera.config.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Components/Camera/Camera.config.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="Camera.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Components/Camera/Camera.js">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="18" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="29" count="6" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+      </file>
+      <file name="Camera.styles.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Components/Camera/Camera.styles.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="Components.ContactItem">
+      <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="ContactItem.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Components/ContactItem/ContactItem.js">
+        <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+      </file>
+      <file name="ContactItem.styles.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Components/ContactItem/ContactItem.styles.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="Components.Separator">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Separator.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Components/Separator/Separator.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+      <file name="Separator.styles.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Components/Separator/Separator.styles.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="Constants">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Constants/index.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="Themes">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="Colors.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Themes/Colors.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="Utils">
+      <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Url.js" path="/Users/muhammadsulton/Documents/test/MuhammadSulton_Apptest/src/Utils/Url.js">
+        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

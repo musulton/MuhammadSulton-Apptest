@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionButton should render add type correctly 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  nativeID="animatedComponent"
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "marginVertical": 10,
+      "opacity": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#547980",
+        "borderRadius": 500,
+        "height": 40,
+        "justifyContent": "center",
+        "width": 40,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 20,
+          },
+          undefined,
+          Object {
+            "fontFamily": "FontAwesome",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "marginLeft": 10,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#000000",
+        }
+      }
+    >
+      Add Contact
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#000000",
+        }
+      }
+    >
+      More contact the better
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`ActionButton should render delete type correctly 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  nativeID="animatedComponent"
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "marginVertical": 10,
+      "opacity": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#547980",
+        "borderRadius": 500,
+        "height": 40,
+        "justifyContent": "center",
+        "width": 40,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 20,
+          },
+          undefined,
+          Object {
+            "fontFamily": "FontAwesome",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "marginLeft": 10,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#000000",
+        }
+      }
+    >
+      Delete Contact
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#000000",
+        }
+      }
+    >
+      Too bad to cut off communication
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`ActionButton should render edit type correctly 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  nativeID="animatedComponent"
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "marginVertical": 10,
+      "opacity": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#547980",
+        "borderRadius": 500,
+        "height": 40,
+        "justifyContent": "center",
+        "width": 40,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 20,
+          },
+          undefined,
+          Object {
+            "fontFamily": "FontAwesome",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "marginLeft": 10,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#000000",
+        }
+      }
+    >
+      Edit Contact
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#000000",
+        }
+      }
+    >
+      You can change everything
+    </Text>
+  </View>
+</View>
+`;

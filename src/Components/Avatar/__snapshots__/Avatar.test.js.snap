@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar should render avatar with image correctly 1`] = `
+<Image
+  source={
+    Object {
+      "uri": "https://static.wikia.nocookie.net/naruto/images/d/dd/Naruto_Uzumaki%21%21.png/revision/latest?cb=20161013233552",
+    }
+  }
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#9DE0AD",
+      "borderRadius": 50,
+      "height": 30,
+      "justifyContent": "center",
+      "width": 30,
+    }
+  }
+/>
+`;
+
+exports[`Avatar should render avatar without image correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#9DE0AD",
+      "borderRadius": 50,
+      "height": 30,
+      "justifyContent": "center",
+      "width": 30,
+    }
+  }
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 40,
+        },
+        undefined,
+        Object {
+          "fontFamily": "FontAwesome",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;

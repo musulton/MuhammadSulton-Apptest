@@ -8,10 +8,10 @@ import {ActionButton, Avatar} from '../../Components';
 import Constants from '../../Constants';
 import {BASE_URL} from '../../Config';
 import ContactActions from '../../Redux/Actions/Contact';
+import Colors from '../../Themes/Colors';
 
 import config from './ContactDetails.config';
 import styles from './ContactDetails.styles';
-import Colors from "../../Themes/Colors";
 
 const Bio = ({firstName, lastName, age}) => (
   <View style={styles.bioContainer}>
