@@ -32,4 +32,7 @@ export default StyleSheet.create({
     fontSize: 14,
     color: 'white',
   },
+  distance: {
+    marginHorizontal: 6,
+  },
 });

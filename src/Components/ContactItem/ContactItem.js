@@ -1,5 +1,7 @@
 import * as React from 'react';
-import {Image, View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
+
+import {Avatar} from '../index';
 
 import styles from './ContactItem.styles';
 
@@ -11,11 +13,10 @@ const Bio = ({firstName, lastName}) => (
   </View>
 );
 
-const Photo = ({photo}) => <Image source={{uri: photo}} style={styles.photo} />;
-
 const ContactItem = ({data, onPress}) => (
   <TouchableOpacity style={styles.container} onPress={onPress}>
-    <Photo photo={data.photo} />
+    <Avatar uri={data.photo} size={60} />
+    <View style={styles.distance} />
     <Bio firstName={data.firstName} lastName={data.lastName} />
   </TouchableOpacity>
 );

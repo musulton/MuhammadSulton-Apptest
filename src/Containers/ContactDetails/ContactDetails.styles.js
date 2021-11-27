@@ -1,21 +1,15 @@
 import {StyleSheet} from 'react-native';
 
+import Colors from '../../Themes/Colors';
+
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: Colors.backgroundScreen,
     paddingHorizontal: 20,
   },
-  avatarBackground: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: 'orange',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   infoContainer: {
-    height: 200,
+    height: 400,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -26,5 +20,15 @@ export default StyleSheet.create({
   },
   distance: {
     marginVertical: 15,
+  },
+  fullname: {
+    fontSize: 25,
+  },
+  age: {
+    fontSize: 15,
+    backgroundColor: 'blue',
+    paddingHorizontal: 15,
+    paddingVertical: 2,
+    borderRadius: 50,
   },
 });

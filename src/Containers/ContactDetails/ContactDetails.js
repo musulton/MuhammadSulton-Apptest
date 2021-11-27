@@ -1,12 +1,10 @@
 import * as React from 'react';
-import {View, Text, Image, Alert} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import {View, Text, Alert} from 'react-native';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {ActionButton} from '../../Components';
-import {validURL} from '../../Utils/Url';
+import {ActionButton, Avatar} from '../../Components';
 import Constants from '../../Constants';
 import {BASE_URL} from '../../Config';
 import ContactActions from '../../Redux/Actions/Contact';
@@ -14,25 +12,12 @@ import ContactActions from '../../Redux/Actions/Contact';
 import config from './ContactDetails.config';
 import styles from './ContactDetails.styles';
 
-const Photo = ({photo}) => {
-  const withPhoto = validURL(photo);
-  if (withPhoto) {
-    return <Image source={{uri: photo}} style={styles.avatarBackground} />;
-  }
-
-  return (
-    <View style={styles.avatarBackground}>
-      <Icon name="user" size={40} color="#fff" />
-    </View>
-  );
-};
-
 const Bio = ({firstName, lastName, age}) => (
   <View style={styles.bioContainer}>
-    <Text>
+    <Text style={styles.fullname}>
       {firstName} {lastName}
     </Text>
-    <Text>{age}</Text>
+    <Text style={styles.age}>{age}</Text>
   </View>
 );
 
@@ -47,7 +32,7 @@ const renderEditButton = ({navigation, contact}) => (
 
 const renderInfo = ({photo, age, firstName, lastName}) => (
   <View style={styles.infoContainer}>
-    <Photo photo={photo} />
+    <Avatar uri={photo} size={300} />
     <Bio firstName={firstName} lastName={lastName} age={age} />
   </View>
 );

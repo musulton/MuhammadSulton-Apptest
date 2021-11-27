@@ -1,11 +1,13 @@
 import {StyleSheet} from 'react-native';
 
+import Colors from '../../Themes/Colors';
+
 export default StyleSheet.create({
   container: {
     padding: 20,
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: Colors.backgroundScreen,
   },
   formContainer: {
     flex: 1,
@@ -16,10 +18,13 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderRadius: 50,
     padding: 15,
-    backgroundColor: '#f6f6f6',
+    backgroundColor: Colors.backgroundField,
   },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  cameraContainer: {
+    alignItems: 'center',
   },
 });

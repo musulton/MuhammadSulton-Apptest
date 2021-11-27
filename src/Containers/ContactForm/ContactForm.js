@@ -7,7 +7,7 @@ import {bindActionCreators} from 'redux';
 import {BASE_URL} from '../../Config';
 import Constants from '../../Constants';
 import ContactActions from '../../Redux/Actions/Contact';
-import {Button} from '../../Components';
+import {Button, Camera} from '../../Components';
 
 import styles from './ContactForm.styles';
 
@@ -68,7 +68,7 @@ const handleEdit = (props, contact, isUpdateData) => () => {
   const {
     route: {params},
   } = props;
-  axios.put(`${BASE_URL}/contact/${params.contact.id}`, contact).then(() => {
+  axios.put(`${BASE_URL}/contact/${params?.contact.id}`, contact).then(() => {
     renderAlertDialog(props, isUpdateData);
   });
 };
@@ -77,14 +77,14 @@ const renderButton = (props, contact) => {
   const {
     route: {params},
   } = props;
-  const onPress = params.isUpdateData ? handleEdit : handleSave;
+  const onPress = params?.isUpdateData ? handleEdit : handleSave;
 
   return (
     <View style={styles.buttonContainer}>
       <Button text="Cancel" onPress={props.navigation.goBack} />
       <Button
         text="Save"
-        onPress={onPress(props, contact, params.isUpdateData)}
+        onPress={onPress(props, contact, params?.isUpdateData)}
       />
     </View>
   );
@@ -107,10 +107,13 @@ const ContactForm = props => {
   const {
     route: {params},
   } = props;
-  const state = _getStates(params.contact);
+  const state = _getStates(params?.contact);
 
   return (
     <View style={styles.container}>
+      <View style={styles.cameraContainer}>
+        <Camera />
+      </View>
       {renderForm(state)}
       {renderButton(props, state.contact)}
     </View>

@@ -13,4 +13,8 @@ export default {
     SET_CONTACT: 'SET_CONTACT',
     SET_SHOULD_RELOAD: 'SET_SHOULD_RELOAD',
   },
+  CAMERA_ACTION_TYPE: {
+    CAPTURE: 'capture',
+    LIBRARY: 'library',
+  },
 };
